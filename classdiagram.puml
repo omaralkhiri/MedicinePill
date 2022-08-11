@@ -1,0 +1,633 @@
+@startuml
+class com.example.ministry_of_health.ui.home.homeFragment {
+~ CardView cardView1
++ {static} homeFragment newInstance()
++ View onCreateView(LayoutInflater,ViewGroup,Bundle)
+}
+class com.example.ministry_of_health.ui.orderlistdelivery.orderlistAdapter {
+- Context context
+- List<Users> usersList
++ <<Create>> orderlistAdapter(Context,List<Users>)
++ orderlistViewHolder onCreateViewHolder(ViewGroup,int)
++ void onBindViewHolder(orderlistViewHolder,int)
++ int getItemCount()
+}
+class com.example.ministry_of_health.ui.orderlistdelivery.orderlistAdapter.orderlistViewHolder {
+- Users users
+~ TextView textViewname
+~ Button buttonupdate
+~ ImageView image1
++ <<Create>> orderlistViewHolder(View)
++ void setValues(Users)
+}
+class com.example.ministry_of_health.ui.infoStore.informationStore {
+- String url
+- TextView textname
+- Button btnsign
+- RequestQueue queue
+- String Id
++ {static} informationStore newInstance()
++ View onCreateView(LayoutInflater,ViewGroup,Bundle)
+- void getinformation(String)
+}
+class com.example.ministry_of_health.ui.accept.Users {
+- String name
+- String id_number
+- String birthday
+- String gender
+- String place_of_birth
+- String phone
+- String password
+- String job
+- String imgidcard
++ <<Create>> Users(String,String,String,String,String,String,String,String)
++ <<Create>> Users(String,String,String,String)
++ String getImgidcard()
++ void setImgidcard(String)
++ String getPassword()
++ void setPassword(String)
++ String getJob()
++ void setJob(String)
++ String getName()
++ void setName(String)
++ String getId_number()
++ void setId_number(String)
++ String getBirthday()
++ void setBirthday(String)
++ String getGender()
++ void setGender(String)
++ String getPlace_of_birth()
++ void setPlace_of_birth(String)
++ String getPhone()
++ void setPhone(String)
+}
+class com.example.ministry_of_health.ui.Createmedicine.Create_medicine {
+- ImageView imageButton
+- EditText medicinename
+- Button addmedicine
+- RequestQueue queue
+- Bitmap bitmap
++ {static} Create_medicine newInstance()
++ View onCreateView(LayoutInflater,ViewGroup,Bundle)
++ void onActivityResult(int,int,Intent)
+}
+class com.example.ministry_of_health.idinfo {
+- {static} String id
+- {static} String iduser
+- {static} String username
+- {static} int medicineid
+- {static} String ipaddress
+- {static} String branch_id
+- {static} String PathImg
+- {static} String pathimag
+- {static} Double Latitude
++ {static} Double getLatitude()
++ {static} void setLatitude(Double)
++ {static} Double getLongitude()
++ {static} void setLongitude(Double)
++ {static} String getPathimag()
++ {static} void setPathimag(String)
++ {static} String getPathImg()
++ {static} void setPathImg(String)
++ {static} String getBranch_id()
++ {static} void setBranch_id(String)
++ {static} String getId()
++ {static} void setId(String)
++ {static} String getIpaddress()
++ {static} void setIpaddress(String)
++ {static} String getIduser()
++ {static} void setIduser(String)
++ {static} String getUsername()
++ {static} void setUsername(String)
++ {static} int getMedicineid()
++ {static} void setMedicineid(int)
+}
+class com.example.ministry_of_health.ui.HomeAdmin.HomeAdmin {
+- CardView cardinformation
++ {static} HomeAdmin newInstance()
++ View onCreateView(LayoutInflater,ViewGroup,Bundle)
+}
+class com.example.ministry_of_health.NavigationDrawerActivitydelivery {
+- AppBarConfiguration mAppBarConfiguration
+- ActivityNavigationDrawerDeliveryBinding binding
+# void onCreate(Bundle)
++ boolean onCreateOptionsMenu(Menu)
++ boolean onSupportNavigateUp()
+}
+class com.example.ministry_of_health.Medicine {
+- int medicineid
+- String img
+- String namemedicine
+- String takemedicine
+- int quentitymedicine
+- int quentityinstore
++ <<Create>> Medicine(String,String,String,int)
++ <<Create>> Medicine(String,String,String,int,int)
++ <<Create>> Medicine(String,String)
++ <<Create>> Medicine(int,String,String)
++ int getMedicineid()
++ void setMedicineid(int)
++ int getQuentityinstore()
++ void setQuentityinstore(int)
++ String getImg()
++ void setImg(String)
++ String getNamemedicine()
++ void setNamemedicine(String)
++ String getTakemedicine()
++ void setTakemedicine(String)
++ int getQuentitymedicine()
++ void setQuentitymedicine(int)
+}
+class com.example.ministry_of_health.ui.UserOrder2.UserOrder2 {
+- RecyclerView recyclerView
+- UserOrderAdapter2 adapter
+- List<Medicine> medicineList
+- RequestQueue queue
+- String URL
+- SwipeRefreshLayout swipeRefreshLayout
++ {static} UserOrder2 newInstance()
++ void onStop()
++ View onCreateView(LayoutInflater,ViewGroup,Bundle)
++ void buildmedicinelist(String)
++ void usingrequest()
+}
+class com.example.ministry_of_health.ui.UserOrder.UserOrderAdapter {
+- Context context
+- List<Users> usersList
++ <<Create>> UserOrderAdapter(Context,List<Users>)
++ orderViewHolder onCreateViewHolder(ViewGroup,int)
++ void onBindViewHolder(orderViewHolder,int)
++ int getItemCount()
++ void filterList(ArrayList<Users>)
+}
+class com.example.ministry_of_health.ui.UserOrder.UserOrderAdapter.orderViewHolder {
+- Users users
+~ TextView textViewname
+~ Button buttonupdate
+~ ImageView image1
++ <<Create>> orderViewHolder(View)
++ void setValues(Users)
+}
+class com.example.ministry_of_health.ui.CreateAccountStore.CreateAccountStore {
++ {static} CreateAccountStore newInstance()
++ View onCreateView(LayoutInflater,ViewGroup,Bundle)
++ void onActivityCreated(Bundle)
+}
+class com.example.ministry_of_health.ui.UserOrder3.UserOrder3 {
+- RecyclerView recyclerView
+- UserOrderAdapter3 adapter
+- List<Medicine> medicineList
+- EditText editTextsearch
+~ RequestQueue queue
+~ String URL
++ {static} UserOrder3 newInstance()
++ void onStop()
++ View onCreateView(LayoutInflater,ViewGroup,Bundle)
+- void filter(String)
++ void buildmedicinelist(String)
+}
+class com.example.ministry_of_health.ui.UserOrder2.UserOrderAdapter2 {
+- Context context
+- List<Medicine> medicineList
+- RequestQueue queue
++ <<Create>> UserOrderAdapter2(Context,List<Medicine>)
++ medicineViewHolder2 onCreateViewHolder(ViewGroup,int)
++ void onBindViewHolder(medicineViewHolder2,int)
++ int getItemCount()
+}
+class com.example.ministry_of_health.ui.UserOrder2.UserOrderAdapter2.medicineViewHolder2 {
+- ImageView medicineImageView
+- TextView nameTextView
+- String URL
++ <<Create>> medicineViewHolder2(View)
++ void setValues(Medicine)
+}
+class com.example.ministry_of_health.ui.updateinfouser3.Medicine3Adapter {
+- Context context
+- List<Medicine> medicineList
+- RequestQueue queue
++ <<Create>> Medicine3Adapter(Context,List<Medicine>)
++ medicineViewHolder onCreateViewHolder(ViewGroup,int)
++ void onBindViewHolder(medicineViewHolder,int)
++ int getItemCount()
++ void filterList(ArrayList<Medicine>)
+}
+class com.example.ministry_of_health.ui.updateinfouser3.Medicine3Adapter.medicineViewHolder {
+- ImageView medicineImageView
+- TextView nameTextView
+- String URL
++ <<Create>> medicineViewHolder(View)
++ void setValues(Medicine)
+}
+class com.example.ministry_of_health.ui.updateinfouser.UpdateuserAdapter {
+- Context context
+- List<Users> usersList
++ <<Create>> UpdateuserAdapter(Context,List<Users>)
++ updateViewHolder onCreateViewHolder(ViewGroup,int)
++ void onBindViewHolder(updateViewHolder,int)
++ int getItemCount()
++ void filterList(ArrayList<Users>)
+}
+class com.example.ministry_of_health.ui.updateinfouser.UpdateuserAdapter.updateViewHolder {
+- Users users
+~ TextView textViewname
+~ Button buttonupdate
+~ ImageView image1
++ <<Create>> updateViewHolder(View)
++ void setValues(Users)
+}
+class com.example.ministry_of_health.ui.updateinfouser.updateuserinformation {
+- RecyclerView recyclerView
+- UpdateuserAdapter adapter
+- List<Users> usersList
+- String URL
+- RequestQueue queue
++ {static} updateuserinformation newInstance()
++ View onCreateView(LayoutInflater,ViewGroup,Bundle)
++ void buildusersList(JSONObject)
+- void filter(String)
+}
+class com.example.ministry_of_health.ui.accept.acceptAdapter {
+- Context context
+- List<Users> usersList
+- RequestQueue queue
++ <<Create>> acceptAdapter(Context,List<Users>)
++ accept_rejectViewHolder onCreateViewHolder(ViewGroup,int)
++ void onBindViewHolder(accept_rejectViewHolder,int)
++ int getItemCount()
+}
+class com.example.ministry_of_health.ui.accept.acceptAdapter.accept_rejectViewHolder {
+- TextView username
+- ImageView imgtrue
+- String URL
+- String URL1
+- String name
++ <<Create>> accept_rejectViewHolder(View)
++ void setValues(Users)
+}
+class com.example.ministry_of_health.ui.information.informationFragment {
+- FragmentInformationBinding binding
+- RequestQueue queue
+- String URL
+- String ID_info
+- TextView txtName
++ View onCreateView(LayoutInflater,ViewGroup,Bundle)
+- void GETinformation(String)
+}
+class com.example.ministry_of_health.ui.orderlistdelivery2.orderlistdeliveryAdapter {
+- Context context
+- List<Medicine> medicineList
++ <<Create>> orderlistdeliveryAdapter(Context,List<Medicine>)
++ orderlistdelivery2ViewHolder onCreateViewHolder(ViewGroup,int)
++ void onBindViewHolder(orderlistdelivery2ViewHolder,int)
++ int getItemCount()
+}
+class com.example.ministry_of_health.ui.orderlistdelivery2.orderlistdeliveryAdapter.orderlistdelivery2ViewHolder {
+- ImageView medicineImageView
+- TextView nameTextView
++ <<Create>> orderlistdelivery2ViewHolder(View)
++ void setValues(Medicine)
+}
+class com.example.ministry_of_health.ui.UserOrder.UserOrder {
+- RecyclerView recyclerView
+- UserOrderAdapter adapter
+- List<Users> usersList
+~ String URL
+- RequestQueue queue
++ {static} UserOrder newInstance()
++ void onStop()
++ View onCreateView(LayoutInflater,ViewGroup,Bundle)
++ void buildusersList(JSONObject)
+}
+class com.example.ministry_of_health.Signup_Activity {
+~ EditText fullname
+~ Spinner placespinner
+~ RadioButton maleradio
+~ ImageView idcard
+~ String URL
+~ String info
+~ AlertDialog.Builder alert
+- Bitmap bitmap
+~ String full
+# void onCreate(Bundle)
++ void btnsignup(View)
++ void onActivityResult(int,int,Intent)
+}
+class com.example.ministry_of_health.ui.medicine.medicineFragment {
+- FragmentMedicineBinding binding
+- RecyclerView recyclerView
+- MedicineAdapter adapter
+- List<Medicine> medicineList
+- String URL
+~ RequestQueue queue
++ View onCreateView(LayoutInflater,ViewGroup,Bundle)
+- void buildmedicinelist(String)
+}
+class com.example.ministry_of_health.NavigationDrawerActivityAdmin {
+- AppBarConfiguration mAppBarConfiguration
+- ActivityNavigationDrawerAdminBinding binding
++ boolean onCreateSupportNavigateUpTaskStack()
+# void onCreate(Bundle)
++ boolean onCreateOptionsMenu(Menu)
++ boolean onSupportNavigateUp()
+}
+class com.example.ministry_of_health.ui.HomeStore.Home_store {
++ {static} Home_store newInstance()
++ View onCreateView(LayoutInflater,ViewGroup,Bundle)
+}
+class com.example.ministry_of_health.ui.UserOrder3.UserOrderAdapter3 {
+- Context context
+- List<Medicine> medicineList
+- RequestQueue queue
++ <<Create>> UserOrderAdapter3(Context,List<Medicine>)
++ userorder3ViewHolder onCreateViewHolder(ViewGroup,int)
++ void onBindViewHolder(userorder3ViewHolder,int)
++ int getItemCount()
++ void filterList(ArrayList<Medicine>)
+}
+class com.example.ministry_of_health.ui.UserOrder3.UserOrderAdapter3.userorder3ViewHolder {
+- ImageView medicineImageView
+- TextView nameTextView
+- String URL
++ <<Create>> userorder3ViewHolder(View)
++ void setValues(Medicine)
+}
+class com.example.ministry_of_health.ui.HomeDelivery.HomeDelivery {
++ {static} HomeDelivery newInstance()
++ View onCreateView(LayoutInflater,ViewGroup,Bundle)
+}
+class com.example.ministry_of_health.splash_screen {
+# void onCreate(Bundle)
+}
+class com.example.ministry_of_health.ui.medicine.MedicineAdapter {
+- Context context
+- List<Medicine> medicineList
++ <<Create>> MedicineAdapter(Context,List<Medicine>)
++ medicineViewHolder onCreateViewHolder(ViewGroup,int)
++ void onBindViewHolder(medicineViewHolder,int)
++ int getItemCount()
+}
+class com.example.ministry_of_health.ui.medicine.MedicineAdapter.medicineViewHolder {
+- ImageView medicineImageView
+- TextView nameTextView
+- TextView takeTextView
+- TextView quentityTextView
++ <<Create>> medicineViewHolder(View)
++ void setValues(Medicine)
+}
+class com.example.ministry_of_health.ui.infoDelivery.Delivery_information {
+- String url
+- TextView textname
+- Button btnsign
+- RequestQueue queue
+- String Id
++ {static} Delivery_information newInstance()
++ View onCreateView(LayoutInflater,ViewGroup,Bundle)
+- void getinformation(String)
+}
+class com.example.ministry_of_health.ui.orderlistdelivery2.orderlistdelivery2 {
+- RecyclerView recyclerView
+- orderlistdeliveryAdapter adapter
+- List<Medicine> medicineList
+- RequestQueue queue
+- String URL
++ {static} orderlistdelivery2 newInstance()
++ View onCreateView(LayoutInflater,ViewGroup,Bundle)
++ void buildmedicinelist(String)
+}
+class com.example.ministry_of_health.MapsFragment {
+- double Lat
+- OnMapReadyCallback callback
++ View onCreateView(LayoutInflater,ViewGroup,Bundle)
++ void onViewCreated(View,Bundle)
+}
+class com.example.ministry_of_health.ui.CreateAcount.CreateAccount {
+- EditText Editname
+- RadioButton radiomale
+- Spinner dayspinner
+- String URL
+- String info
+~ AlertDialog.Builder alert1
+- String fullname
+- RequestQueue queue
++ View onCreateView(LayoutInflater,ViewGroup,Bundle)
+}
+class com.example.ministry_of_health.NavigationDrawerActivityUser1 {
+- AppBarConfiguration mAppBarConfiguration
+- ActivityNavigationDrawerUser1Binding binding
+# void onCreate(Bundle)
++ boolean onCreateOptionsMenu(Menu)
++ boolean onSupportNavigateUp()
+}
+class com.example.ministry_of_health.Login_Activity {
+- String URL
+- RequestQueue queue
+- EditText idtxt
+- EditText pass
+- TextView txtsignup
+- AlertDialog.Builder alert
+- String job
+# void onCreate(Bundle)
++ void checklogin(View)
+# void onStop()
+- void checkjob(String)
+}
+class com.example.ministry_of_health.NavigationDrawerActivityStore {
+- AppBarConfiguration mAppBarConfiguration
+- ActivityNavigationDrawerStoreBinding binding
++ boolean onCreateSupportNavigateUpTaskStack()
+# void onCreate(Bundle)
++ boolean onCreateOptionsMenu(Menu)
++ boolean onSupportNavigateUp()
+}
+class com.example.ministry_of_health.ui.accept.accept_rejectFragment {
+- RecyclerView recyclerView
+- acceptAdapter adapter
+- List<Users> usersList
+- RequestQueue queue
+- String URL
++ View onCreateView(LayoutInflater,ViewGroup,Bundle)
++ void builduserlist(JSONObject)
+}
+class com.example.ministry_of_health.ui.updateinfouser3.updateinfouser3 {
+- RecyclerView recyclerView
+- Medicine3Adapter adapter
+- List<Medicine> medicineList
+- EditText editTextsearch
+~ RequestQueue queue
+~ String URL
++ {static} updateinfouser3 newInstance()
++ View onCreateView(LayoutInflater,ViewGroup,Bundle)
+- void filter(String)
++ void buildmedicinelist(String)
+}
+class com.example.ministry_of_health.ui.updateinfouser2.updateinfouser2 {
+- TextView textViewname
+- ImageView addmedicine
+- RecyclerView recyclerView
+- Medicine2Adapter adapter
+- List<Medicine> medicineList
+- SwipeRefreshLayout swipeRefreshLayout
+- String URL
+~ RequestQueue queue
+~ String id
++ {static} updateinfouser2 newInstance()
++ View onCreateView(LayoutInflater,ViewGroup,Bundle)
+- void buildmedicinelist(String)
++ void usingrequest()
+}
+class com.example.ministry_of_health.ui.infoAdmin.Admin_information {
+- String url
+- TextView textname
+- Button btnsign
+- RequestQueue queue
+- String Id
++ {static} Admin_information newInstance()
++ View onCreateView(LayoutInflater,ViewGroup,Bundle)
+- void getinformation(String)
+}
+class com.example.ministry_of_health.ui.updateinfouser2.Medicine2Adapter {
+- Context context
+- List<Medicine> medicineList
+- RequestQueue queue
++ <<Create>> Medicine2Adapter(Context,List<Medicine>)
++ medicineViewHolder onCreateViewHolder(ViewGroup,int)
++ void onBindViewHolder(medicineViewHolder,int)
++ int getItemCount()
+}
+class com.example.ministry_of_health.ui.updateinfouser2.Medicine2Adapter.medicineViewHolder {
+- ImageView medicineImageView
+- TextView nameTextView
+- String URL
++ <<Create>> medicineViewHolder(View)
++ void setValues(Medicine)
+}
+class com.example.ministry_of_health.ui.updatemedicine.update_medicine_information {
+- RecyclerView recyclerView
+- updatemedicineAdapter adapter
+- List<Medicine> medicinesList
+- String URL
+- RequestQueue queue2
+- EditText editsaerch
++ {static} update_medicine_information newInstance()
++ View onCreateView(LayoutInflater,ViewGroup,Bundle)
+- void buildmedicinelist(JSONObject)
+- void filter(String)
+}
+class com.example.ministry_of_health.ui.order.orderFragment {
+- FragmentOrderBinding binding
+- Button oredernow
+- MapView mapView
+- double lat
+- RequestQueue queue
+- String UR1
+- FusedLocationProviderClient fusedLocationProviderClient
+- AlertDialog.Builder alert
++ View onCreateView(LayoutInflater,ViewGroup,Bundle)
++ void onLowMemory()
++ void onSaveInstanceState(Bundle)
++ void onDestroy()
++ void onResume()
++ void onPause()
++ void onStop()
++ void onStart()
++ void onMapReady(GoogleMap)
+}
+class com.example.ministry_of_health.ui.updatemedicine.updatemedicineAdapter {
+- Context context
+- List<Medicine> medicineList
+- RequestQueue queue
++ <<Create>> updatemedicineAdapter(Context,List<Medicine>)
++ updatemedicineViewHolder onCreateViewHolder(ViewGroup,int)
++ void onBindViewHolder(updatemedicineViewHolder,int)
++ int getItemCount()
++ void filterList(ArrayList<Medicine>)
+}
+class com.example.ministry_of_health.ui.updatemedicine.updatemedicineAdapter.updatemedicineViewHolder {
+- ImageView imgmedicine
+- EditText namemedicine
+- Button Remove
+- String URL1
+- String URL2
+- String name_medicine
++ <<Create>> updatemedicineViewHolder(View)
++ void setValues(Medicine)
+}
+class com.example.ministry_of_health.ui.orderlistdelivery.orderlistdelivery {
+- RecyclerView recyclerView
+- orderlistAdapter adapter
+- List<Users> usersList
+~ String URL
+- RequestQueue queue
++ {static} orderlistdelivery newInstance()
++ View onCreateView(LayoutInflater,ViewGroup,Bundle)
++ void buildusersList(JSONObject)
+}
+
+
+androidx.fragment.app.Fragment <|-- com.example.ministry_of_health.ui.home.homeFragment
+com.example.ministry_of_health.ui.orderlistdelivery.Adapter <|-- com.example.ministry_of_health.ui.orderlistdelivery.orderlistAdapter
+com.example.ministry_of_health.ui.orderlistdelivery.orderlistAdapter +.. com.example.ministry_of_health.ui.orderlistdelivery.orderlistAdapter.orderlistViewHolder
+com.example.ministry_of_health.ui.orderlistdelivery.ViewHolder <|-- com.example.ministry_of_health.ui.orderlistdelivery.orderlistAdapter.orderlistViewHolder
+androidx.fragment.app.Fragment <|-- com.example.ministry_of_health.ui.infoStore.informationStore
+androidx.fragment.app.Fragment <|-- com.example.ministry_of_health.ui.Createmedicine.Create_medicine
+androidx.fragment.app.Fragment <|-- com.example.ministry_of_health.ui.HomeAdmin.HomeAdmin
+androidx.appcompat.app.AppCompatActivity <|-- com.example.ministry_of_health.NavigationDrawerActivitydelivery
+androidx.fragment.app.Fragment <|-- com.example.ministry_of_health.ui.UserOrder2.UserOrder2
+com.example.ministry_of_health.ui.UserOrder.Adapter <|-- com.example.ministry_of_health.ui.UserOrder.UserOrderAdapter
+com.example.ministry_of_health.ui.UserOrder.UserOrderAdapter +.. com.example.ministry_of_health.ui.UserOrder.UserOrderAdapter.orderViewHolder
+com.example.ministry_of_health.ui.UserOrder.ViewHolder <|-- com.example.ministry_of_health.ui.UserOrder.UserOrderAdapter.orderViewHolder
+androidx.fragment.app.Fragment <|-- com.example.ministry_of_health.ui.CreateAccountStore.CreateAccountStore
+androidx.fragment.app.Fragment <|-- com.example.ministry_of_health.ui.UserOrder3.UserOrder3
+com.example.ministry_of_health.ui.UserOrder2.Adapter <|-- com.example.ministry_of_health.ui.UserOrder2.UserOrderAdapter2
+com.example.ministry_of_health.ui.UserOrder2.UserOrderAdapter2 +.. com.example.ministry_of_health.ui.UserOrder2.UserOrderAdapter2.medicineViewHolder2
+com.example.ministry_of_health.ui.UserOrder2.ViewHolder <|-- com.example.ministry_of_health.ui.UserOrder2.UserOrderAdapter2.medicineViewHolder2
+com.example.ministry_of_health.ui.updateinfouser3.Adapter <|-- com.example.ministry_of_health.ui.updateinfouser3.Medicine3Adapter
+com.example.ministry_of_health.ui.updateinfouser3.Medicine3Adapter +.. com.example.ministry_of_health.ui.updateinfouser3.Medicine3Adapter.medicineViewHolder
+com.example.ministry_of_health.ui.updateinfouser3.ViewHolder <|-- com.example.ministry_of_health.ui.updateinfouser3.Medicine3Adapter.medicineViewHolder
+com.example.ministry_of_health.ui.updateinfouser.Adapter <|-- com.example.ministry_of_health.ui.updateinfouser.UpdateuserAdapter
+com.example.ministry_of_health.ui.updateinfouser.UpdateuserAdapter +.. com.example.ministry_of_health.ui.updateinfouser.UpdateuserAdapter.updateViewHolder
+com.example.ministry_of_health.ui.updateinfouser.ViewHolder <|-- com.example.ministry_of_health.ui.updateinfouser.UpdateuserAdapter.updateViewHolder
+androidx.fragment.app.Fragment <|-- com.example.ministry_of_health.ui.updateinfouser.updateuserinformation
+com.example.ministry_of_health.ui.accept.Adapter <|-- com.example.ministry_of_health.ui.accept.acceptAdapter
+com.example.ministry_of_health.ui.accept.acceptAdapter +.. com.example.ministry_of_health.ui.accept.acceptAdapter.accept_rejectViewHolder
+com.example.ministry_of_health.ui.accept.ViewHolder <|-- com.example.ministry_of_health.ui.accept.acceptAdapter.accept_rejectViewHolder
+androidx.fragment.app.Fragment <|-- com.example.ministry_of_health.ui.information.informationFragment
+com.example.ministry_of_health.ui.orderlistdelivery2.Adapter <|-- com.example.ministry_of_health.ui.orderlistdelivery2.orderlistdeliveryAdapter
+com.example.ministry_of_health.ui.orderlistdelivery2.orderlistdeliveryAdapter +.. com.example.ministry_of_health.ui.orderlistdelivery2.orderlistdeliveryAdapter.orderlistdelivery2ViewHolder
+com.example.ministry_of_health.ui.orderlistdelivery2.ViewHolder <|-- com.example.ministry_of_health.ui.orderlistdelivery2.orderlistdeliveryAdapter.orderlistdelivery2ViewHolder
+androidx.fragment.app.Fragment <|-- com.example.ministry_of_health.ui.UserOrder.UserOrder
+androidx.appcompat.app.AppCompatActivity <|-- com.example.ministry_of_health.Signup_Activity
+androidx.fragment.app.Fragment <|-- com.example.ministry_of_health.ui.medicine.medicineFragment
+androidx.appcompat.app.AppCompatActivity <|-- com.example.ministry_of_health.NavigationDrawerActivityAdmin
+androidx.fragment.app.Fragment <|-- com.example.ministry_of_health.ui.HomeStore.Home_store
+com.example.ministry_of_health.ui.UserOrder3.Adapter <|-- com.example.ministry_of_health.ui.UserOrder3.UserOrderAdapter3
+com.example.ministry_of_health.ui.UserOrder3.UserOrderAdapter3 +.. com.example.ministry_of_health.ui.UserOrder3.UserOrderAdapter3.userorder3ViewHolder
+com.example.ministry_of_health.ui.UserOrder3.ViewHolder <|-- com.example.ministry_of_health.ui.UserOrder3.UserOrderAdapter3.userorder3ViewHolder
+androidx.fragment.app.Fragment <|-- com.example.ministry_of_health.ui.HomeDelivery.HomeDelivery
+androidx.appcompat.app.AppCompatActivity <|-- com.example.ministry_of_health.splash_screen
+com.example.ministry_of_health.ui.medicine.Adapter <|-- com.example.ministry_of_health.ui.medicine.MedicineAdapter
+com.example.ministry_of_health.ui.medicine.MedicineAdapter +.. com.example.ministry_of_health.ui.medicine.MedicineAdapter.medicineViewHolder
+com.example.ministry_of_health.ui.medicine.ViewHolder <|-- com.example.ministry_of_health.ui.medicine.MedicineAdapter.medicineViewHolder
+androidx.fragment.app.Fragment <|-- com.example.ministry_of_health.ui.infoDelivery.Delivery_information
+androidx.fragment.app.Fragment <|-- com.example.ministry_of_health.ui.orderlistdelivery2.orderlistdelivery2
+androidx.fragment.app.Fragment <|-- com.example.ministry_of_health.MapsFragment
+androidx.fragment.app.Fragment <|-- com.example.ministry_of_health.ui.CreateAcount.CreateAccount
+androidx.appcompat.app.AppCompatActivity <|-- com.example.ministry_of_health.NavigationDrawerActivityUser1
+androidx.appcompat.app.AppCompatActivity <|-- com.example.ministry_of_health.Login_Activity
+androidx.appcompat.app.AppCompatActivity <|-- com.example.ministry_of_health.NavigationDrawerActivityStore
+androidx.fragment.app.Fragment <|-- com.example.ministry_of_health.ui.accept.accept_rejectFragment
+androidx.fragment.app.Fragment <|-- com.example.ministry_of_health.ui.updateinfouser3.updateinfouser3
+androidx.fragment.app.Fragment <|-- com.example.ministry_of_health.ui.updateinfouser2.updateinfouser2
+androidx.fragment.app.Fragment <|-- com.example.ministry_of_health.ui.infoAdmin.Admin_information
+com.example.ministry_of_health.ui.updateinfouser2.Adapter <|-- com.example.ministry_of_health.ui.updateinfouser2.Medicine2Adapter
+com.example.ministry_of_health.ui.updateinfouser2.Medicine2Adapter +.. com.example.ministry_of_health.ui.updateinfouser2.Medicine2Adapter.medicineViewHolder
+com.example.ministry_of_health.ui.updateinfouser2.ViewHolder <|-- com.example.ministry_of_health.ui.updateinfouser2.Medicine2Adapter.medicineViewHolder
+androidx.fragment.app.Fragment <|-- com.example.ministry_of_health.ui.updatemedicine.update_medicine_information
+com.google.android.gms.maps.OnMapReadyCallback <|.. com.example.ministry_of_health.ui.order.orderFragment
+androidx.fragment.app.Fragment <|-- com.example.ministry_of_health.ui.order.orderFragment
+com.example.ministry_of_health.ui.updatemedicine.Adapter <|-- com.example.ministry_of_health.ui.updatemedicine.updatemedicineAdapter
+com.example.ministry_of_health.ui.updatemedicine.updatemedicineAdapter +.. com.example.ministry_of_health.ui.updatemedicine.updatemedicineAdapter.updatemedicineViewHolder
+com.example.ministry_of_health.ui.updatemedicine.ViewHolder <|-- com.example.ministry_of_health.ui.updatemedicine.updatemedicineAdapter.updatemedicineViewHolder
+androidx.fragment.app.Fragment <|-- com.example.ministry_of_health.ui.orderlistdelivery.orderlistdelivery
+@enduml

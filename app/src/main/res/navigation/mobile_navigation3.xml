@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation3"
+    app:startDestination="@id/home_store">
+
+
+    <fragment
+        android:id="@+id/create_medicine"
+        android:name="com.example.ministry_of_health.ui.Createmedicine.Create_medicine"
+        android:label="Create New Medicine"
+        tools:layout="@layout/create_medicine_fragment" />
+    <fragment
+        android:id="@+id/home_store"
+        android:name="com.example.ministry_of_health.ui.HomeStore.Home_store"
+        android:label="HOME"
+        tools:layout="@layout/home_store_fragment" >
+        <action
+            android:id="@+id/action_home_store_to_create_medicine"
+            app:destination="@id/create_medicine" />
+
+        <action
+            android:id="@+id/action_home_store_to_update_medicine_to_user"
+            app:destination="@id/update_medicine_information" />
+        <action
+            android:id="@+id/action_home_store_to_userOrder"
+            app:destination="@id/userOrder" />
+        <action
+            android:id="@+id/action_home_store_to_updateuserinformation"
+            app:destination="@id/updateuserinformation" />
+        <action
+            android:id="@+id/action_home_store_to_informationStore"
+            app:destination="@id/informationStore" />
+    </fragment>
+    <fragment
+        android:id="@+id/userOrder"
+        android:name="com.example.ministry_of_health.ui.UserOrder.UserOrder"
+        android:label="Order List"
+        tools:layout="@layout/user_order_fragment" />
+    <fragment
+        android:id="@+id/update_medicine_information"
+        android:name="com.example.ministry_of_health.ui.updatemedicine.update_medicine_information"
+        android:label="Editing Medicine Information "
+        tools:layout="@layout/update_medicine_information_fragment" />
+    <fragment
+        android:id="@+id/informationStore"
+        android:name="com.example.ministry_of_health.ui.infoStore.informationStore"
+        android:label="SETTING"
+        tools:layout="@layout/information_store_fragment" />
+    <fragment
+        android:id="@+id/updateuserinformation"
+        android:name="com.example.ministry_of_health.ui.updateinfouser.updateuserinformation"
+        android:label="Editing list of item"
+        tools:layout="@layout/updateuserinformation_fragment" />
+    <fragment
+        android:id="@+id/updateinfouser2"
+        android:name="com.example.ministry_of_health.ui.updateinfouser2.updateinfouser2"
+        android:label="Editing list of item 2"
+        tools:layout="@layout/upadateinfouser2_fragment" />
+    <fragment
+        android:id="@+id/updateinfouser3"
+        android:name="com.example.ministry_of_health.ui.updateinfouser3.updateinfouser3"
+        android:label="Editing list of item 3"
+        tools:layout="@layout/updateinfouser3_fragment" />
+    <fragment
+        android:id="@+id/userOrder2"
+        android:name="com.example.ministry_of_health.ui.UserOrder2.UserOrder2"
+        android:label="Order List"
+        tools:layout="@layout/user_order2_fragment" />
+    <fragment
+        android:id="@+id/userOrder3"
+        android:name="com.example.ministry_of_health.ui.UserOrder3.UserOrder3"
+        android:label="Order List 2"
+        tools:layout="@layout/user_order3_fragment" />
+</navigation>

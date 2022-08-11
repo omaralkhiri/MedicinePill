@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/homeAdmin"
+            android:icon="@drawable/ic_baseline_home_24"
+            android:title="Home" />
+        <item
+            android:id="@+id/admin_information"
+            android:icon="@drawable/ic_baseline_account_box_24"
+            android:title="Setting" />
+        <item
+            android:id="@+id/create_accountFragment"
+            android:icon="@drawable/ic_baseline_account_circle_24"
+            android:title="Create Account" />
+        <item
+            android:id="@+id/accept_rejectFragment"
+            android:icon="@drawable/maleandfemale"
+            android:title="Accept Account" />
+        <item
+            android:id="@+id/removeAccount"
+            android:icon="@drawable/ic_baseline_supervisor_account_24"
+            android:title="Remove Account" />
+    </group>
+</menu>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@id/homeDelivery">
+    <fragment
+        android:id="@+id/homeDelivery"
+        android:name="com.example.ministry_of_health.ui.HomeDelivery.HomeDelivery"
+        android:label="Home"
+        tools:layout="@layout/home_delivery_fragment" >
+
+        <action
+            android:id="@+id/action_homeDelivery_to_orderlistdelivery"
+            app:destination="@id/orderlistdelivery" />
+        <action
+            android:id="@+id/action_homeDelivery_to_delivery_information"
+            app:destination="@id/delivery_information" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/orderlistdelivery"
+        android:name="com.example.ministry_of_health.ui.orderlistdelivery.orderlistdelivery"
+        android:label="ORDER LIST"
+        tools:layout="@layout/orderlistdelivery_fragment" >
+        <action
+            android:id="@+id/action_orderlistdelivery_to_orderlistdelivery2"
+            app:destination="@id/orderlistdelivery2" />
+        <action
+            android:id="@+id/action_orderlistdelivery_to_homeDelivery"
+            app:destination="@id/homeDelivery" />
+    </fragment>
+    <fragment
+        android:id="@+id/delivery_information"
+        android:name="com.example.ministry_of_health.ui.infoDelivery.Delivery_information"
+        android:label="SETTING"
+        tools:layout="@layout/delivery_information_fragment" />
+    <fragment
+        android:id="@+id/orderlistdelivery2"
+        android:name="com.example.ministry_of_health.ui.orderlistdelivery2.orderlistdelivery2"
+        android:label="ORDER LIST"
+        tools:layout="@layout/orderlistdelivery2_fragment" >
+        <action
+            android:id="@+id/action_orderlistdelivery2_to_mapsFragment"
+            app:destination="@id/mapsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/mapsFragment"
+        android:name="com.example.ministry_of_health.MapsFragment"
+        android:label="MAP"
+        tools:layout="@layout/fragment_maps" >
+        <action
+            android:id="@+id/action_mapsFragment_to_orderlistdelivery"
+            app:destination="@id/orderlistdelivery" />
+    </fragment>
+</navigation>

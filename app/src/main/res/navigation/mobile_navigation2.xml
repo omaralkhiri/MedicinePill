@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@id/homeAdmin">
+    <fragment
+        android:id="@+id/create_accountFragment"
+        android:name="com.example.ministry_of_health.ui.CreateAcount.CreateAccount"
+        android:label="Create Account"
+        tools:layout="@layout/create_account_fragment" />
+    <fragment
+        android:id="@+id/accept_rejectFragment"
+        android:name="com.example.ministry_of_health.ui.accept.accept_rejectFragment"
+        android:label="Accept and Reject Accounts"
+        tools:layout="@layout/fragment_accept_reject" />
+    <fragment
+        android:id="@+id/admin_information"
+        android:name="com.example.ministry_of_health.ui.infoAdmin.Admin_information"
+        android:label="SETTING"
+        tools:layout="@layout/admin_information_fragment" />
+    <fragment
+        android:id="@+id/homeAdmin"
+        android:name="com.example.ministry_of_health.ui.HomeAdmin.HomeAdmin"
+        android:label="HOME"
+        tools:layout="@layout/home_admin_fragment" >
+        <action
+            android:id="@+id/action_homeAdmin_to_accept_rejectFragment"
+            app:destination="@id/accept_rejectFragment" />
+        <action
+            android:id="@+id/action_homeAdmin_to_create_accountFragment"
+            app:destination="@id/create_accountFragment" />
+        <action
+            android:id="@+id/action_homeAdmin_to_admin_information"
+            app:destination="@id/admin_information" />
+        <action
+            android:id="@+id/action_homeAdmin_to_removeAccount"
+            app:destination="@id/removeAccount" />
+    </fragment>
+    <fragment
+        android:id="@+id/removeAccount"
+        android:name="com.example.ministry_of_health.ui.RemoveAccount.RemoveAccount"
+        android:label="Remove Account"
+        tools:layout="@layout/fragment_remove_account" />
+</navigation>
